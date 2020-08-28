@@ -35,7 +35,7 @@
     e.preventDefault();
     const text = (this.querySelector('[name=item]')).value;
     const item = {
-      // text: text,
+      // text: text, OR JUST
       text,
       done: false
     };
@@ -83,14 +83,38 @@
     populateList(items, itemsList);
   }
 
+  //function to reset list to Daily Items
+  function dailyReset() {
+    //create a button that runs this function!
+    
+    //array with daily tasks
+    const dailyItems = [
+      {text: 'Make Bed', done: false},
+      {text: 'Go for a Walk', done: false},
+      {text: 'Clear Dishes', done: false},
+      {text: 'Write a Journey Entry', done: false}
+    ];
+    
+    //Clear itemsList
+    items = dailyItems;
+    //Loop over array and add each item to list
+    // dailyItems.forEach(item => {
+    //   items.push(item);
+    // });
+
+    //Run populateList
+    populateList(items, itemsList);
+  }
+
   //NOTE: event delegation is the idea of responsible parents and negligent children
   // i.e. children don't listen 
 
   addItems.addEventListener('submit', addItem);
   itemsList.addEventListener('click', toggleDone);
 
-
   populateList(items, itemsList);
+
+  
 
 </script>
 
